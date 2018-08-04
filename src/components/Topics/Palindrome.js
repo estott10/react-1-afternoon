@@ -12,20 +12,18 @@ export default class Palindrome extends Component {
 
     handleChange(val){
         this.setState({ userInput: val})
-    };
+    }
 
     checkIfPalindrome(userInput){
         var palindrome= this.state.palindrome;
-        const splitInput= input.split("");
+        const splitInput= userInput.split("");
         if(splitInput === splitInput.reverse()){
             palindrome= "true";
         }
         else{
             palindrome= "false";
         }
-           this.setState{
-            palindrome= palindrome;
-        };
+           this.setState({ palindrome= palindrome});
     }
 
 
@@ -35,7 +33,7 @@ export default class Palindrome extends Component {
             <div className="puzzleBox filterStringPB"> 
                 <h4>Palindrome</h4>
                 <input className="inputLine" onChange= {(e) => this.handleChange(e.target.value)}></input>
-                <button className="confirmationButton" onClick= {() => this.checkIfPalindrome(this.state.userInput)} > Check </button>
+                <button className="confirmationButton" onClick= {() => this.checkIfPalindrome(this.state.userInput)}> Check </button>
                 <span className="resultsBox">Palindrome: {this.state.palindrome}</span>
             </div>
         )
@@ -43,4 +41,3 @@ export default class Palindrome extends Component {
 }
 
 
-//Is the string spelled the same backwards and forwards?  loop forward and do nested loop backwards... compare each element
